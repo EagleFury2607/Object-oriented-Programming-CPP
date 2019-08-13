@@ -1,0 +1,39 @@
+C++ PROGRAM TO COUNT AND DISPLAY THE NUMBER OF LINES NOT STARTING WITH ALPHABET 'A' PRESENT IN THE TEXT FILE "STORY .TXT
+#include<iostream.h>
+#include<conio.h>
+#include<stdio.h>
+#include<string.h>
+#include<fstream.h>
+int nooflines()
+{
+               ifstream fin("STORY.TXT");
+               int number=-1;
+               char line[50];
+               while(!fin.eof())
+               {
+                              fin.getline(line,50,'.');
+                              for(int i=0;i<50;i++)
+                              {
+                              if((line[i]!='a'&&line[i]!='A')&&(line[i-1]=='\r'))
+                              number++;
+                              }
+               }
+               cout<<"\nNumber of lines="<<" "<<number;
+}
+void main()
+{
+               clrscr();
+               ofstream fout;
+               char str[500];
+               fout.open("STORY.TXT");
+               cout<<"\nEnter a string\n";
+               gets(str);
+               fout<<str<<"\n";
+               fout.close();
+               nooflines();
+               getch();
+}
+
+
+Read more: http://dijibook.blogspot.com/2013/02/c-program-to-count-and-display-number.html#ixzz4LfFIyBXI 
+Follow us: @jaimin1012 on Twitter | jaiminkumar.prajapati on Facebook
